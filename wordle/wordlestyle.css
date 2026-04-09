@@ -267,6 +267,7 @@ input[type="text"], .ansbox{
 .key_grey{
     background-color: var(--grey);
     color: var(--background);
+    pointer-events: none;
 }
 
 /*提出ボタン*/
