@@ -75,7 +75,7 @@ h1,h2,h3,input,button,b,span{
 
 /*remの基準*/
 html{
-    font-size: 16px;
+    font-size: 1.5vh;
 }
 
 body{
@@ -90,7 +90,7 @@ body{
 .wordle-wrapper{
     display: block;
     position: relative;
-    width: 80%;
+    width: 100%;
     min-width: 20rem;
     max-width: 36rem;
     height: 100%;
@@ -103,7 +103,7 @@ body{
 }
 
 h1{
-    font-size: 2.4rem;
+    font-size: 2.4em;
     margin: 0;
 
     padding-top: 1rem;
