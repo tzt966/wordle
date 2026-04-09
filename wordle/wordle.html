@@ -16,7 +16,7 @@
                 <p>5文字の英単語を当てるゲームです。<br />
                 回答は、画面のキーボードを使って入力します。<br />
                 回答は一文字ずつ判定され、正解との近さによって色分けされます。</p>
-                <p class="wide"><span class="mohankaito grey">灰</span><span class="mohankaito grey">色</span>は正解に全く含まれない文字、<span class="mohankaito yellow">黄</span><span class="mohankaito yellow">色</span>は正解に含まれるが語中での出現箇所が異なる文字、<span class="mohankaito green">緑</span>は語中の出現箇所も正しい文字です。全部<span class="mohankaito green">緑</span>になれば正解です。</p>
+                <p class="wide"><span class="mohankaito key_grey">灰</span><span class="mohankaito key_grey">色</span>は正解に全く含まれない文字、<span class="mohankaito key_yellow">黄</span><span class="mohankaito key_yellow">色</span>は正解に含まれるが語中での出現箇所が異なる文字、<span class="mohankaito key_green">緑</span>は語中の出現箇所も正しい文字です。全部<span class="mohankaito key_green">緑</span>になれば正解です。</p>
             </div>
             <div class="announce-area">
                 <div id="correct" class="box noshow">
@@ -26,6 +26,9 @@
                 <div id="incorrect" class="box noshow">
                     <p class="message"><b class="incorrectmessage">残念!</b>正解は<br /><span id="ans2"></span></p>
                     <button class="reset-button" onclick="reset()">もう一度やる</button>
+                </div>
+                <div id="lessletter" class="alert noshow">
+                    <p><b>文字数が足りません!</b></p>
                 </div>
             </div>
             <div class="answer-area">

@@ -1,4 +1,4 @@
-let correct_answer = "WEATE";
+let correct_answer = "MATCH";
 let counter = 0;
 let n = 0;
 
@@ -153,6 +153,8 @@ function wordle() {
 function ok() {
     if(n == (counter + 1) * 5){
         wordle();
+    } else {
+        alert("文字数が足りません")
     }
 }
 
