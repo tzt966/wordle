@@ -78,7 +78,7 @@ h1,h2,h3,input,button,b,span{
 
 /*remの基準*/
 html{
-    font-size: 1.5vh;
+    font-size: 1.75vh;
 }
 
 body{
@@ -87,7 +87,7 @@ body{
     margin: 0;
 
     top: 0;
-    height: 100svh;
+    min-height: 100svh;
 }
 
 .wordle-wrapper{
@@ -256,6 +256,7 @@ input[type="text"], .ansbox{
     font-size: 0.9rem;
 
     background-color: var(--keyboard);
+    color: var(--text);
     border: none;
     border-radius: 0;
 
@@ -322,6 +323,7 @@ input[type="submit"]{
     text-align: center;
 
     margin: 0.1rem 0.05rem 0.5rem 0.05rem;
+    padding: 0;
 
     font-size: 0.9rem;
 
@@ -342,7 +344,7 @@ input[type="submit"]:active{
 .announce-area{
     background-color: #979fa7;
     position: relative;
-    width: 17rem;
+    width: 12rem;
     height: 0rem;
     margin: 0 auto;
 }
