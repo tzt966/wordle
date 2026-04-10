@@ -1,6 +1,9 @@
 let correct_answer = "LILJA";
+let correct_answer_ja = "かわいいアイドル"
 let counter = 0;
 let n = 0;
+
+let timer;
 
 let correct_ans_0 = correct_answer.charAt(0);
 let correct_ans_1 = correct_answer.charAt(1);
@@ -10,14 +13,46 @@ let correct_ans_4 = correct_answer.charAt(4);
 
 let correct_ans_html = '<span class = "ansbox green">' + correct_ans_0 + '</span><span class = "ansbox green">' + correct_ans_1 + '</span><span class = "ansbox green">' + correct_ans_2 + '</span><span class = "ansbox green">' + correct_ans_3 + '</span><span class = "ansbox green">' + correct_ans_4 + '</span>';
 
-window.onload = function load() {
-    let add1 = document.getElementById("ans1");
-    add1.innerHTML = correct_ans_html;
-    let add2 = document.getElementById("ans2");
-    add2.innerHTML = correct_ans_html;
+let add1 = document.getElementById("ans1");
+let add2 = document.getElementById("ans2");
+
+window.onload = async function load() {
+    await loadDictionary();
+    rebuildAnswer();
+    rebuildpopup();
 }
 
-        let timer;
+
+//辞書データ取得
+async function loadDictionary() {
+    const res = await fetch("./dictionary/dictionary.json");
+    const data = await res.json();
+
+    //jsonオブジェクトの数を取得
+    const dictionary_obj_count = data.length;
+
+    //取得する番号の決定
+    let rdnb = Math.floor(Math.random() * dictionary_obj_count);
+
+    correct_answer = data[rdnb].English;
+    correct_answer_ja = data[rdnb].Japanese;
+}
+
+//正答文字列の再計算
+function rebuildAnswer() {
+    correct_ans_0 = correct_answer.charAt(0);
+    correct_ans_1 = correct_answer.charAt(1);
+    correct_ans_2 = correct_answer.charAt(2);
+    correct_ans_3 = correct_answer.charAt(3);
+    correct_ans_4 = correct_answer.charAt(4);
+    correct_ans_html = '<span class = "ansbox green">' + correct_ans_0 + '</span><span class = "ansbox green">' + correct_ans_1 + '</span><span class = "ansbox green">' + correct_ans_2 + '</span><span class = "ansbox green">' + correct_ans_3 + '</span><span class = "ansbox green">' + correct_ans_4 + '</span>';
+}
+
+//ポップアップで表示する文字列の書き換え
+function rebuildpopup() {
+    add1.innerHTML = correct_ans_html;
+    add2.innerHTML = correct_ans_html;
+}
 
 //キーボード
 function press(key) {
@@ -135,7 +170,11 @@ function wordle() {
         document.querySelectorAll(".key").forEach(button => {
             button.disabled = true;
         });
-        document.getElementById("correct").classList.add("show");
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            document.getElementById("correct").classList.add("show");
+        }, 2400);
+        
         return;
     }
 
@@ -146,7 +185,10 @@ function wordle() {
         document.querySelectorAll(".key").forEach(button => {
             button.disabled = true;
         });
-        document.getElementById("incorrect").classList.add("show");
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            document.getElementById("incorrect").classList.add("show");
+        }, 2400);
         return;
     }
 }
@@ -173,7 +215,11 @@ function ok() {
 }
 
 //リセット
-function reset(){
+async function reset(){
+    await loadDictionary();
+    await rebuildAnswer();
+    rebuildpopup();
+
     for(let k = 0; k < 30; k++){
         let resetinput = "input_" + k;
         let inputdelete = document.getElementById(resetinput);
