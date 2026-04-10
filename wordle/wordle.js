@@ -1,4 +1,4 @@
-let correct_answer = "WEATE";
+let correct_answer = "LILJA";
 let counter = 0;
 let n = 0;
 
