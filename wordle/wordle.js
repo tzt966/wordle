@@ -22,17 +22,21 @@ window.onload = async function load() {
     rebuildpopup();
 }
 
+let res = "";
+let data = "";
+let dictionary_obj_count = 0;
+rdnb = 0;
 
 //辞書データ取得
 async function loadDictionary() {
-    const res = await fetch("./dictionary/dictionary.json");
-    const data = await res.json();
+    res = await fetch("./dictionary/dictionary.json");
+    data = await res.json();
 
     //jsonオブジェクトの数を取得
-    const dictionary_obj_count = data.length;
+    dictionary_obj_count = data.length;
 
     //取得する番号の決定
-    let rdnb = Math.floor(Math.random() * dictionary_obj_count);
+    rdnb = Math.floor(Math.random() * dictionary_obj_count);
 
     correct_answer = data[rdnb].English;
     correct_answer_ja = data[rdnb].Japanese;
@@ -88,6 +92,10 @@ function backspace() {
     }
 }
 
+//ユーザの答え
+let user_ans_char = "";
+let flag = false;
+
 //関数の定義
 function wordle() {
 
@@ -105,9 +113,31 @@ function wordle() {
     let user_ans_4 = document.getElementById(input_4).value;
 
     let user_ans_arr = [user_ans_0, user_ans_1, user_ans_2, user_ans_3, user_ans_4];
+    user_ans_char = user_ans_0 + user_ans_1  +  user_ans_2  +  user_ans_3  +  user_ans_4;
 
-    //回答比較
+    //回答が辞書にあるかどうかを検索
+    for (let k = 0; k < dictionary_obj_count; k++){
+        let checkword = data[k].English;
+        if (user_ans_char == checkword){
+            flag = true;
+        }
+    }
     
+    if(flag === false) {
+        document.getElementById("nodic").classList.remove("fadeout");
+        document.getElementById("nodic").classList.add("yesshow");
+
+
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            document.getElementById("nodic").classList.add("fadeout");
+
+            setTimeout(() => {
+                document.getElementById("nodic").classList.remove("yesshow", "fadeout");
+            },200);
+        }, 450);
+        return;
+    }
 
     let correct_ans_arr = [correct_ans_0, correct_ans_1, correct_ans_2, correct_ans_3, correct_ans_4];
 

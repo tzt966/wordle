@@ -65,7 +65,7 @@
 }
 
 /*フォント設定はここに集約*/
-p{
+p,a{
     font-family: "Roboto", "DM Sans", "IBM Plex Sans JP";
 }
 
@@ -133,6 +133,11 @@ h2{
 p{
     font-size: 1rem;
     margin: 0;
+}
+
+a{
+    color: var(--base);
+    text-decoration: 1px underline;
 }
 
 .wide{
@@ -464,7 +469,7 @@ b{
 .alert p b{
     font-size: 1rem;
     line-height: 3rem;
-    color: var(--background);
+    color: var(--white);
 }
 
 .reset-button{
