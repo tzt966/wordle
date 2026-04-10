@@ -117,6 +117,8 @@ h1{
 }
 
 .rules{
+    display: block;
+    position: relative;
     width:75%;
     margin: 0 auto;
     padding: 0 1.5rem 0 1.5rem;
@@ -137,24 +139,50 @@ p{
     line-height: 2rem
 }
 
-#setsumei_check{
+#setsumei_check, #setsumei_check2{
     display: none;
 }
 
 label{
+    position: relative;
     font-size: 1.1rem;
     color: var(--base);
+    top:0.8rem;
+    z-index: 100;
 }
 
 .rules_info{
     display: none;
+    position: absolute;
+    top:0;
     margin: 0 auto;
-    padding: 0.5rem 1rem;
-    width: 85%;
+    padding: 3rem 2rem 1rem 2rem;
+
+    background-color: var(--keyboard);
+    border: 2px solid var(--shadow);
+
+    width: 78%;
+    z-index: 10;
 }
 
 #setsumei_check:checked ~ .rules_info{
     display: block;
+}
+
+label::after{
+    content: "ルール説明";
+    position: relative;
+    font-size: 1.1rem;
+    color: var(--base);
+    z-index: 100;
+}
+
+#setsumei_check:checked + label::after{
+    content: "とじる";
+    position: relative;
+    font-size: 1.1rem;
+    color: var(--base);
+    z-index: 100;
 }
 
 .mohankaito{
@@ -273,7 +301,7 @@ input[type="text"], .ansbox{
     text-align: center !important;
     
     margin: 0.1rem 0.05rem 0.5rem 0.05rem;
-    padding: 0;
+    padding: 0rem;
     
     font-size: 0.9rem;
 
@@ -292,15 +320,18 @@ input[type="text"], .ansbox{
 
 .key-wide{
     display: inline-block;
+    position: relative;
+    top:0.165rem;
 
     height: 3rem;
-    width: 3rem;
+    width: 4rem;
     text-align: center !important;
     
     margin: 0.1rem 0.05rem 0.5rem 0.05rem;
-    padding: 0;
+    padding: 0rem;
     
-    font-size: 0.9rem;
+    font-size: 1.5rem;
+    color: var(--text);
 
     background-color: var(--keyboard);
     border: none;
