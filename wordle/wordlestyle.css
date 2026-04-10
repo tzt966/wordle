@@ -79,6 +79,7 @@ h1,h2,h3,input,button,b,span{
 /*remの基準*/
 html{
     font-size: 1.75vh;
+    height: 100%;
 }
 
 body{
@@ -88,6 +89,7 @@ body{
 
     top: 0;
     min-height: 100svh;
+    height: 100%;
 }
 
 .wordle-wrapper{
@@ -237,6 +239,7 @@ input[type="text"], .ansbox{
 /*キーボード*/
 .keyboard-area{
     text-align: center;
+    margin: 0;
 }
 
 .keybord-row{
@@ -390,6 +393,19 @@ b{
 
     top: 10rem;
     background-color: var(--red);
+
+    opacity: 0;
+    visibility: hidden;
+}
+
+.yesshow{
+    opacity: 1;
+    visibility: visible;
+}
+
+.fadeout{
+    opacity: 0;
+    transition: opacity 0.2s;
 }
 
 .alert p b{

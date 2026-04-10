@@ -17,6 +17,8 @@ window.onload = function load() {
     add2.innerHTML = correct_ans_html;
 }
 
+        let timer;
+
 //キーボード
 function press(key) {
     let check = (counter + 1) * 5
@@ -155,7 +157,18 @@ function ok() {
     if(n == (counter + 1) * 5){
         wordle();
     } else {
-        alert("文字数が足りません")
+        document.getElementById("lessletter").classList.remove("fadeout");
+        document.getElementById("lessletter").classList.add("yesshow");
+
+
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            document.getElementById("lessletter").classList.add("fadeout");
+
+            setTimeout(() => {
+                document.getElementById("lessletter").classList.remove("yesshow", "fadeout");
+            },200);
+        }, 450);
     }
 }
 
