@@ -7,6 +7,7 @@
     --keyboard: #cfcdc9;
     --shadow: #9f9e9a;
     --base: #4c7093;
+    --white: #ffffff;
 
     --red: #cc3257;
 }
@@ -69,7 +70,7 @@ p{
 }
 
 
-h1,h2,h3,input,button,b,span{
+h1,h2,h3,input,button,b,span,label{
     font-family: "Roboto Bold", "DM Sans Bold", "IBM Plex Sans JP Bold";
 
     font-weight: normal;
@@ -116,12 +117,9 @@ h1{
 }
 
 .rules{
-    background-color: var(--keyboard);
     width:75%;
     margin: 0 auto;
     padding: 0 1.5rem 0 1.5rem;
-
-    border: 2px solid var(--shadow);
 }
 
 h2{
@@ -137,6 +135,26 @@ p{
 
 .wide{
     line-height: 2rem
+}
+
+#setsumei_check{
+    display: none;
+}
+
+label{
+    font-size: 1.1rem;
+    color: var(--base);
+}
+
+.rules_info{
+    display: none;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    width: 85%;
+}
+
+#setsumei_check:checked ~ .rules_info{
+    display: block;
 }
 
 .mohankaito{
@@ -169,7 +187,7 @@ input[type="text"], .ansbox{
     -webkit-appearance: none;
     display: inline-block;
     box-sizing: border-box;
-    background-color: var(--background);
+    background-color: var(--white);
 
     padding: 0;
     margin: 0.1rem;
@@ -180,6 +198,7 @@ input[type="text"], .ansbox{
     text-align: center;
 
     border: solid 1px var(--text);
+    border-radius: 0;
 
     font-size: 1.5rem;
 
@@ -347,7 +366,7 @@ input[type="submit"]:active{
 .announce-area{
     background-color: #979fa7;
     position: relative;
-    width: 12rem;
+    width: 20rem;
     height: 0rem;
     margin: 0 auto;
 }
@@ -396,6 +415,8 @@ b{
 
     opacity: 0;
     visibility: hidden;
+
+    z-index: 10;
 }
 
 .yesshow{
