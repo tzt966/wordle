@@ -122,9 +122,10 @@ function wordle() {
             keycolor = "key_green";
         }
 
-        document.getElementById(keyid).classList.add(keycolor);
         //編集不可にする
         document.getElementById(newid).readOnly = true;
+        //キーボードの色を変更
+        document.getElementById(keyid).classList.add(keycolor);
     }
 
     //正解時処理

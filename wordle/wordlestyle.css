@@ -1,10 +1,10 @@
 :root{
-    --background: #dfddd7;
+    --background: #e5e4e1;
     --text: #272e31;
     --grey: #41505f;
     --green: #639147;
     --yellow: #d5a44b;
-    --keyboard: #cccac5;
+    --keyboard: #cfcdc9;
     --shadow: #9f9e9a;
     --base: #4c7093;
 
@@ -71,6 +71,9 @@ p{
 
 h1,h2,h3,input,button,b,span{
     font-family: "Roboto Bold", "DM Sans Bold", "IBM Plex Sans JP Bold";
+
+    font-weight: normal;
+    font-style: normal;
 }
 
 /*remの基準*/
@@ -148,6 +151,10 @@ p{
 }
 
 /*入力欄*/
+.answer-area{
+    padding: 2rem 0;
+}
+
 .input-area{
     height: 3rem;
     margin: 0.4rem;
@@ -179,8 +186,8 @@ input[type="text"], .ansbox{
 
 .yellow{
     background-color: var(--yellow) !important;
-    transition: 
-        transform 1.5s, background-color 1s 1.5s;
+    color: var(--background);
+    transition: transform 1.5s, background-color 1s 1.5s, color 1s 1.5s;
     transform-style: preserve-3d;
 
     transform: rotateX(360deg);
@@ -236,18 +243,15 @@ input[type="text"], .ansbox{
     text-align: center;
 }
 
-.row1{
-    padding-left: 1.8rem;
-}
-
 .key{
     display: inline-block;
 
     height: 3rem;
     width: 2rem;
-    text-align: center;
+    text-align: center !important;
     
-    margin: 0.1rem 0.05rem 0.3rem 0.05rem;
+    margin: 0.1rem 0.05rem 0.5rem 0.05rem;
+    padding: 0;
     
     font-size: 0.9rem;
 
@@ -255,32 +259,69 @@ input[type="text"], .ansbox{
     border: none;
     border-radius: 0;
 
-    box-shadow: 0 0.1rem 0.1rem 0 var(--shadow);
+    box-shadow: 0 0.2rem 0rem 0 var(--shadow);
+}
+
+.key:active{
+    transform: translateY(0.16rem);
+    box-shadow: 0 0.04rem 0rem 0 var(--shadow);
+}
+
+.key-wide{
+    display: inline-block;
+
+    height: 3rem;
+    width: 3rem;
+    text-align: center !important;
+    
+    margin: 0.1rem 0.05rem 0.5rem 0.05rem;
+    padding: 0;
+    
+    font-size: 0.9rem;
+
+    background-color: var(--keyboard);
+    border: none;
+    border-radius: 0;
+
+    box-shadow: 0 0.2rem 0rem 0 var(--shadow);
+}
+
+.key-wide:active{
+    transform: translateY(0.16rem);
+    box-shadow: 0 0.04rem 0rem 0 var(--shadow);
 }
 
 .key_green{
     background-color: var(--green);
     color: var(--background);
+
+    transition: background-color 0s 2.4s, color 0s 2.4s;
 }
 
 .key_yellow{
     background-color: var(--yellow);
+    color: var(--background);
+
+    transition: background-color 0s 2.4s, color 0s 2.4s;
 }
 
 .key_grey{
     background-color: var(--grey);
     color: var(--background);
     pointer-events: none;
+
+    transition: background-color 0s 2.4s, color 0s 2.4s;
 }
 
 /*提出ボタン*/
 input[type="submit"]{
     display: inline-block;
 
-    width: 10rem;
-    height: 2.2rem;
+    width: 4rem;
+    height: 3rem;
+    text-align: center;
 
-    margin: 0.2rem;
+    margin: 0.1rem 0.05rem 0.5rem 0.05rem;
 
     font-size: 0.9rem;
 
@@ -288,7 +329,13 @@ input[type="submit"]{
     border: none;
     border-radius: 0;
 
-    box-shadow: 0 0.1rem 0.1rem 0 var(--shadow);
+    box-shadow: 0 0.2rem 0rem 0 var(--shadow);
+}
+
+
+input[type="submit"]:active{
+    transform: translateY(0.16rem);
+    box-shadow: 0 0.04rem 0rem 0 var(--shadow);
 }
 
 /*アナウンス*/
