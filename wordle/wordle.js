@@ -98,6 +98,7 @@ let flag = false;
 
 //関数の定義
 function wordle() {
+    let flag = false;
 
     //inputboxの中身を取得
     let input_0 = "input_" + (5 *counter);
