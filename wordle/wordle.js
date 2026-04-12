@@ -24,16 +24,22 @@ window.onload = async function load() {
 
 let res = "";
 let data = "";
+let res_input = "";
+let data_input = "";
 let dictionary_obj_count = 0;
+let dictionary_obj_count_input = 0;
 rdnb = 0;
 
 //辞書データ取得
 async function loadDictionary() {
     res = await fetch("./dictionary/dictionary.json");
     data = await res.json();
+    res_input = await fetch("./dictionary/dictionary_input.json");
+    data_input = await res_input.json();
 
     //jsonオブジェクトの数を取得
     dictionary_obj_count = data.length;
+    dictionary_obj_count_input = data_input.length;
 
     //取得する番号の決定
     rdnb = Math.floor(Math.random() * dictionary_obj_count);
@@ -117,8 +123,8 @@ function wordle() {
     user_ans_char = user_ans_0 + user_ans_1  +  user_ans_2  +  user_ans_3  +  user_ans_4;
 
     //回答が辞書にあるかどうかを検索
-    for (let k = 0; k < dictionary_obj_count; k++){
-        let checkword = data[k].English;
+    for (let k = 0; k < dictionary_obj_count_input; k++){
+        let checkword = data_input[k].English;
         if (user_ans_char == checkword){
             flag = true;
         }
@@ -280,3 +286,21 @@ async function reset(){
 
 let submit = document.getElementById("submit");
 submit.addEventListener("click", ok);
+
+
+//正解ウインドウの閉じるボタン
+let closebox2 = document.getElementById("close2");
+closebox2.addEventListener("change", (event) => {
+    if(event.target.checked){
+        document.getElementById("incorrect").classList.remove("show");
+        document.getElementById("incorrect").classList.add("noshow");
+    }
+});
+
+let closebox1 = document.getElementById("close1");
+closebox1.addEventListener("change", (event) => {
+    if(event.target.checked){
+        document.getElementById("correct").classList.remove("show");
+        document.getElementById("correct").classList.add("noshow");
+    }
+});

@@ -24,10 +24,14 @@
             </div>
             <div class="announce-area">
                 <div id="correct" class="box noshow">
+                    <input type="checkbox" id="close1" class="close">
+                    <label for="close1">x</label>
                     <p class="message"><b class="correctmessage">正解!</b><br /><span id="ans1"></span></p>
                     <button class="reset-button" onclick="reset()">もう一度やる</button>
                 </div>
                 <div id="incorrect" class="box noshow">
+                    <input type="checkbox" id="close2" class="close">
+                    <label for="close2">x</label>
                     <p class="message"><b class="incorrectmessage">残念!</b>正解は<br /><span id="ans2"></span></p>
                     <button class="reset-button" onclick="reset()">もう一度やる</button>
                 </div>

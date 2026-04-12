@@ -111,7 +111,7 @@ h1{
     font-size: 2.4em;
     margin: 0;
 
-    padding-top: 1rem;
+    padding-top: 4rem;
 
     line-height: 4rem;
 }
@@ -148,7 +148,7 @@ a{
     display: none;
 }
 
-label{
+.rules label{
     position: relative;
     font-size: 1.1rem;
     color: var(--base);
@@ -174,7 +174,7 @@ label{
     display: block;
 }
 
-label::after{
+.rules label::after{
     content: "ルール説明";
     position: relative;
     font-size: 1.1rem;
@@ -182,7 +182,7 @@ label::after{
     z-index: 100;
 }
 
-#setsumei_check:checked + label::after{
+#setsumei_check:checked + .rules label::after{
     content: "とじる";
     position: relative;
     font-size: 1.1rem;
@@ -367,7 +367,8 @@ input[type="text"], .ansbox{
 .key_grey{
     background-color: var(--grey);
     color: var(--white);
-    pointer-events: none;
+    /*入力不可にするところ*/
+    /*pointer-events: none;*/
 
     transition: background-color 0s 2.4s, color 0s 2.4s;
 }
@@ -429,9 +430,29 @@ input[type="submit"]:active{
     z-index: 10;
 }
 
+.close{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.box label{
+    display: block;
+    position: absolute;
+    top: 0.1rem;
+    right: 0.6rem;
+}
+
 b{
     padding-right: 0.65rem;
 }
+
+.message{
+    line-height: 2.5rem;
+}
+
+
 
 .correctmessage{
     color: var(--green);
